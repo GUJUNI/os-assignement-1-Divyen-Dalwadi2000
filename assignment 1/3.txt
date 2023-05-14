@@ -1,0 +1,38 @@
+NAME 	   : DALWADI DIVYEN
+ROLLNO     : 06
+COURSE     : MCA-2
+SUBJECT    : OPERATING SYSTEM
+ASSIGNMENT : PRACTICAL ASSIGNMENT 1
+*************************************************************************************
+<<c
+Q3 - Write a shell script to generate Fibonacci numbers from 1 to n.
+c
+============
+Shell script
+============
+
+echo "Enter a number : "
+read num
+
+a=0
+b=1
+
+echo -e "Enter value for n : \c"
+read n
+
+for (( i=1; i<=$n ; i++ ));
+do
+   echo -e "$a \c "
+
+     c=$(( $a + $b ))
+     a=$b
+     b=$c
+done
+echo -e "\n"
+
+<<OUTPUT 
+-----------------------------------------------------------------------------------------------
+Enter value for n : 10
+0 1 1 2 3 5 8 13 21 34
+-----------------------------------------------------------------------------------------------
+OUTPUT
