@@ -1,0 +1,255 @@
+NAME 	   : DALWADI DIVYEN
+ROLLNO     : 06
+COURSE     : MCA-2
+SUBJECT    : OPERATING SYSTEM
+ASSIGNMENT : PRACTICAL ASSIGNMENT 1
+*************************************************************************************
+<<c
+1. Write a shell script to display all odd and even numbers using various loops
+available(for, while and until).
+c
+============
+Shell script
+============
+#!/bin/bash
+ch=0
+echo -e "Enter value for n : \c"
+read n
+while [ $ch -lt 4 ] do
+    
+    echo " Press 1 For For loop "
+    echo " Press 2 For While loop "
+    echo " Press 3 For Until loop "
+    echo " ------Press 4 For Exit------ "
+    echo -e "Enter Value for ch : \c"
+    read ch
+    case "$ch" in
+    1)
+        echo -e "\nThis is For loop"
+        oe=0
+        while [ $oe -lt 3 ];
+         do
+            
+            echo " Press 1 For Even numbers "
+            echo " Press 2 For Odd numbers "
+            echo " (-_-) Press 3 For Exit (-_-) "
+            echo -e "Enter Value for oe : \c"
+            read oe
+            case "$oe" in
+            1)
+                echo The even numbers are
+                for ((i = 1; i <= n; i++)); do
+                    if [ $(expr $i % 2) == 0 ]; then
+                        # if [ $((i % 2)) -eq 0 ]; then       # we can use both condition type
+                        printf " %d " "$i"
+                    fi
+                done
+                ;;
+            2)
+                echo The odd numbers are
+                for ((i = 1; i <= n; i++)); do
+                    if [ $(expr $i % 2) != 0 ]; then
+                        printf " %d " "$i"
+                    fi
+                done
+                ;;
+            3)
+                
+                echo "Exit"
+                ;;
+            esac
+        done
+        ;;
+    2)
+        echo -e "\n This is While loop"
+        oe=0
+        while [ $oe -lt 3 ]; 
+        do
+            echo " Press 1 For Even numbers "
+            echo " Press 2 For Odd numbers "
+            echo " (-_-) Press 3 For Exit (-_-) "
+            echo -e "Enter Value for oe : \c"
+            read oe
+            case "$oe" in
+            1)
+                j=1
+                echo -e "The Even numbers are : \c "
+                while [ $j -le $n ]; do
+
+                    if [ $(expr $j % 2) -eq 0 ]; then
+                        printf " %d" "$j"
+                    fi
+                    ((j++))
+                done
+                ;;
+            2)
+                j=1
+                echo -e "The Odd numbers are : \c "
+                while [ $j -le $n ]; do
+
+                    if [ $(expr $j % 2) -ne 0 ]; then
+                        printf " %d" "$j"
+                    fi
+                    ((j++))
+                done
+                ;;
+            3)
+                
+                echo "Exit"
+                ;;
+            esac
+        done
+        ;;
+    3)
+        echo -e "\nThis is Until loop"
+        oe=0
+        while [ $oe -lt 3 ];
+        do
+            
+            echo " Press 1 For Even numbers "
+            echo " Press 2 For Odd numbers "
+            echo " (-_-) Press 3 For Exit (-_-) "
+            echo -e "Enter Value for oe : \c"
+            read oe
+            case "$oe" in
+            1)
+                j=1
+                echo -e "The Even numbers are : \c "
+                until [ ! $j -le $n ]; do
+
+                    if [ $(expr $j % 2) -eq 0 ]; then
+                        printf " %d" "$j"
+                    fi
+                    ((j++))
+                done
+                ;;
+            2)
+                j=1
+                echo -e "The Odd numbers are : \c "
+                until [ ! $j -le $n ]; do
+
+                    if [ $(expr $j % 2) -ne 0 ]; then
+                        printf " %d" "$j"
+                    fi
+                    ((j++))
+                done
+                ;;
+            3)
+                
+                echo "Exit"
+                ;;
+            esac
+        done
+        ;;
+    4)
+        
+        echo "Exit"
+        ;;
+    esac
+done
+
+<<op
+-----------------------------------------------------------------
+Enter value for n : 7
+
+ Press 1 For For loop
+ Press 2 For While loop
+ Press 3 For Until loop
+ ------Press 4 For Exit------
+Enter Value for ch : 1
+
+    This is For loop
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+            Enter Value for oe : 1
+            The even numbers are
+            2  4  6
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+            Enter Value for oe : 2
+            The odd numbers are
+            1  3  5  7
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+            Enter Value for oe : 3
+
+            Exit
+
+ Press 1 For For loop
+ Press 2 For While loop
+ Press 3 For Until loop
+ ------Press 4 For Exit------
+Enter Value for ch : 2
+
+ This is While loop
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+            Enter Value for oe : 1
+            The Even numbers are :  2 4 6
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+            Enter Value for oe : 2
+            The Odd numbers are :  1 3 5 7
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+            Enter Value for oe : 3
+
+            Exit
+
+ Press 1 For For loop
+ Press 2 For While loop
+ Press 3 For Until loop
+ ------Press 4 For Exit------
+Enter Value for ch : 3
+
+This is Until loop
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+        Enter Value for oe : 1
+        The Even numbers are :  2 4 6
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+        Enter Value for oe : 2
+        The Odd numbers are :  1 3 5 7
+
+    Press 1 For Even numbers
+    Press 2 For Odd numbers
+    (-_-) Press 3 For Exit (-_-)
+
+        Enter Value for oe : 3
+
+        Exit
+        
+ Press 1 For For loop
+ Press 2 For While loop
+ Press 3 For Until loop
+ ------Press 4 For Exit------
+Enter Value for ch : 4
+
+Exit
+
+op
